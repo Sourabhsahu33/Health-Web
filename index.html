@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="color-1.css"> -->
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family-Clicker+Script&family=Poppins:wght@200;300; */
+        /* 400;500;600&display=swap'); */
+        :root {
+            --skin-color: #ec1839;
+            --bg-black-900: #f2f2fc;
+            --bg-black-100: #fdf9ff;
+            --bg-black-50: #e8dfec;
+            --text-black-900: #302e4d;
+            --text-black-700: #504e70;
+        }
+
+        body {
+            line-height: 1.5;
+            font-size: 16px;
+            font-family: 'Poppins' sans-serif;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+
+        .section {
+            background: var(--bg-black-900);
+            min-height: 100vh;
+            display: block;
+            padding: 0 30px;
+            opacity: 1;
+        }
+
+        .hiddn {
+            display: none !important;
+        }
+
+        .main-content {
+            padding-left: 270px;
+        }
+
+        .padd-1S {
+            padding-left: 15px;
+            padding-right: 15px;
+
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            /* background: red; */
+            margin: auto;
+        }
+
+        .section .container {
+            padding-top: 60px;
+            padding-bottom: 70px;
+        }
+
+        .section-tittle {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .section-tittle h2 {
+            font-size: 40px;
+            color: var(--text-black-900);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-tittle h2::before {
+            content: '';
+            height: 4px;
+            width: 50px;
+            background-color: var(--skin-color);
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        .section-tittle h2::after {
+            content: '';
+            height: 4px;
+            width: 25px;
+            background-color: var(--skin-color);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -15px;
+            margin-right: -15px;
+            position: relative;
+
+        }
+
+        .btn {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 35px;
+            color: white;
+            border-radius: 40px;
+            display: inline-block;
+            white-space: nowrap;
+            border: none;
+            transition: all 0.3s ease;
+            background: var(--skin-color);
+        }
+
+        .bn {
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 8px 16px;
+            margin-top: 20px;
+            border-radius: 40px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+            ;
+        }
+
+        .bn:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-img:hover {
+            transform: scale(1.05);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .shadow-dark {
+            box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+        }
+
+        /*aside*/
+        .aside {
+            width: 270px;
+            background: var(--bg-black-100);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 30px;
+            display: flex;
+            border-right: 1px solid var(--bg-black-50);
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .aside .logo {
+            position: absolute;
+            top: 50px;
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+
+        .aside .logo a {
+            color: var(--text-black-900);
+            font-weight: 700;
+            padding: 15px 20px;
+            font-size: 30px;
+            letter-spacing: 5px;
+            position: relative;
+        }
+
+        .aside .logo a span {
+            font-family: 'Clicker Script', Cursive;
+            font-size: 40px;
+        }
+
+        .aside .logo a::before {
+            content: ' ';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-bottom: 5px solid var(--skin-color);
+            border-left: 5px solid var(--skin-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .aside .logo a::after {
+            content: ' ';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-top: 5px solid var(--skin-color);
+            border-right: 5px solid var(--skin-color);
+            top: 0;
+            right: 0;
+        }
+
+        .aside .nav-toggler {
+            height: 40px;
+            width: 45px;
+            border: 1px solid var(--bg-black-50);
+            cursor: pointer;
+            position: fixed;
+            left: 300px;
+            top: 20px;
+            border-radius: 5px;
+            background: var(--bg-black-100);
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .aside .nav-toggler span {
+            height: 2px;
+            width: 18px;
+            background: var(--skin-color);
+            display: inline-block;
+            position: relative;
+        }
+
+        .aside .nav-toggler span::before {
+            content: '';
+            height: 2px;
+            width: 18px;
+            background: var(--skin-color);
+            position: absolute;
+            top: -6px;
+            left: 0;
+        }
+
+        .aside .nav-toggler span::after {
+            content: '';
+            height: 2px;
+            width: 18px;
+            background: var(--skin-color);
+            position: absolute;
+            top: 6px;
+            left: 0;
+        }
+
+        .aside .nav {
+            margin-top: 50px;
+        }
+
+        .asided .nav li {
+            margin-bottom: 20px;
+            /* background: red; */
+            display: block;
+        }
+
+        .aside .nav li a {
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--bg-black-50);
+            display: block;
+            color: var(--text-black-900);
+            padding: 5px 15px;
+        }
+
+        .aside .nav li .active {
+            color: var(--skin-color);
+        }
+
+        .aside .nav li a i {
+            margin-right: 15px;
+        }
+
+        /* home */
+        .home {
+            min-height: 100vh;
+            display: flex;
+            color: var(--text-black-900);
+        }
+
+        .home .home-info {
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+
+        h3.hello {
+            font-size: 28px;
+            margin: 15 0;
+        }
+
+        h3.hello span {
+            font-family: 'Clicker Script', cursive;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--skin-color);
+        }
+
+        h3.my-profession {
+            font-size: 30px;
+            margin: 15px 0;
+            /* .typing{
+            color: var(--skin-color);;
+        } */
+        }
+
+        .home-info p {
+            margin-bottom: 70px;
+            font-size: 20px;
+            color: var(--text-black-700-);
+        }
+
+        .home .img.jpg {
+            flex: 0 0 40%;
+            max-width: 40%;
+            text-align: center;
+            position: relative;
+            background: red;
+        }
+
+        .home-img::after {
+            content: '';
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            border-bottom: 10px solid var(--skin-color);
+            border-right: 10 px solid var(--skin-color);
+            right: 40px;
+            bottom: -20px;
+        }
+
+        .home-img::before {
+            content: '';
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            border-top: 10px solid var(--skin-color);
+            border-left: 10 px solid var(--skin-color);
+            left: 40px;
+            top: -20px;
+        }
+
+        .home .img.jpg img {
+            height: 400px;
+            margin: auto;
+            border-radius: 400px;
+        }
+
+        .about .about-content {
+            flex: 0 0 100%;
+            max-width: 100%;
+            /* background-color: red; */
+        }
+
+        .about .about-content .education,
+        .about .about-content .experience {
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin-top: 30px;
+        }
+
+        .about .about-content h3.tittle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--text-black-900);
+        }
+
+        .about .about-content .timeline-box {
+            flex: 0 0 100%;
+            max-width: 100%;
+            /* background-color: red; */
+        }
+
+        .about .about-content .timeline {
+            background-color: var(--bg-black-100);
+            padding: 30 px 15px;
+            border: 1px solid var(--bg-black-50);
+            border-radius: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+        .about .about-content .timeline .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+
+        .about .about-content .timeline .timeline-item:last-child {
+            padding-bottom: 0px;
+        }
+
+        .about .about-content .timeline .timeline-item::before {
+            padding-top: 5px;
+            content: '';
+            width: 1px;
+            position: absolute;
+            height: 100%;
+            left: 7px;
+            top: 0;
+            background-color: var(--skin-color);
+        }
+
+        /* .about .about-content .timeline shadow-dark .circle-dot{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: var(--skin-color);
+                    
+        } */
+        .about .about-content .timeline .timeline-tittle {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+            color: var(--text-black-900);
+        }
+
+        .about .about-content .timeline .timeline-text {
+            line-height: 25px;
+            font-size: 16px;
+            text-align: justify;
+            color: var(--text-black-700);
+        }
+
+        /* .about .about-content .pop { */
+        /* width: calc(50% - 30px); */
+        /* } */
+        .about .about-content .left p {
+            text-align: justify;
+        }
+
+
+        .about .about-content .right .bars {
+            margin-bottom: 15px;
+
+        }
+
+        .about .about-content .right .info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about .about-content .right .span {
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .about .about-content .right .In {
+            height: 5px;
+            width: 100%;
+            background: lightgrey;
+            position: relative;
+        }
+
+        .about .about-content .right .In::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            /* width: 50%; */
+            left: 0;
+            top: 0;
+            background: crimson;
+
+        }
+
+        .about-content .right .year2018::before {
+            width: 0%;
+        }
+
+        .about-content .right .year2019::before {
+            width: 60%;
+
+        }
+
+        .about-content .right .year2020::before {
+            width: 90%;
+
+        }
+
+        .about-content .right .year2021::before {
+            width: 80%;
+
+        }
+
+        .about-content .right .year2022::before {
+            width: 20%;
+
+        }
+
+        .portfolio .container {
+            padding-bottom: 40px;
+        }
+
+        .portfolio .portfolio-heading {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .portfolio .portfolio-heading h2 {
+            color: var(--text-black-900);
+            font-weight: 500;
+
+        }
+
+        .portfolio .portfolio-item {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            margin-bottom: 30px;
+        }
+
+        .portfolio .portfolio-item-inner {
+            border: 6px solid var(--bg-black-100);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio .portfolio-item-inner .portfolio-img img {
+            width: 100%;
+        }
+
+        .contact-tittle {
+            color: var(--skin-color);
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .contact-sub-tittle {
+            color: var(--text-black-900);
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 60px;
+        }
+
+        .contact .contact-info-item {
+            flex: 0 0 25%;
+            max-width: 25%;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact .contact-info-item .icon {
+            display: inline-block;
+        }
+
+        .contact .contact-info-item .icon .fa {
+            font-size: 25px;
+            color: var(--skin-color);
+        }
+
+        .contact .contact-info-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-black-900);
+            text-transform: capitalize;
+            margin: 15px 0 5px;
+        }
+
+        .contact .contact-info-item p {
+            font-size: 16px;
+            line-height: 25px;
+            color: var(--text-black-700);
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <!--main container start-->
+    <div class="main-container">
+        <!--Aside start-->
+        <div class="aside">
+            <div class="logo">
+                <a href="#"><span>H</span><span>ealth</span></a>
+            </div>
+            <div class="nav-toggler">
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="#diseases/treatment"><i class="fa fa-user"></i>Diseases/Treatment</a></li>
+                <li><a href="#covid-19"><i class="fa fa-list"></i>Covid-19</a></li>
+                <li><a href="#for good health"><i class="fa fa-briefcase"></i> For Good Health</a></li>
+                <li><a href="#contact"><i class="fa fa-comments"></i>contact</a></li>
+
+            </ul>
+        </div>
+        <!--Aside end-->
+        <!--main content start-->
+        <div class="main-content">
+            <!--Home section start-->
+            <section class="home section " id="home">
+                `<div class="container">
+                    <div class="row">
+                        <div class="home-info padd-1S">
+                            <h3 class="hello">Stay Safe, Stay <span class="name">Health</span></h3>
+                            <h3 class="my-profession">Health is<span class="typing"> Wealth</span></h3>
+                            <p>Someone says that- "Health is Wealth". it means if your health is
+                                good you can achieve anything because you can't buy your health so stay safe stay
+                                healthy becoause "Health is Wealth" </p>
+                            <a href="#contact" class="btn ">Welcome</a>
+                        </div>
+                        <div class="home-img">
+                            <img src="img.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Home section end-->
+            <!--About section start-->
+            <section class="about section " id="diseases/treatment">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-tittle padd-1S">
+                            <h2>Healthy life</h2>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="about-content padd-1S">
+                            <div class="row">
+                                <div class="about-text">
+                                    <h3>What is mean of <span>"Healthy life"</span></h3>
+                                    <p>Good nutrition, daily exercise and adequate sleep are the foundations of healthy
+                                        living. A healthy lifestyle keeps you fit, energetic and at reduced risk for
+                                        disease.
+                                        The World Health organization (WHO) in 1946 defined health as "A complete state
+                                        of mental, physical and social well-being not merely the absence of disease."
+                                        and "A healthy lifestyle simply means doing things that make you happy and feel
+                                        good."
+                                    </p>
+                                    <p>There are some dieases which Treatment did not possible in past but now due to
+                                        science some "Digital Treatment" is available for these disease and now these
+                                        "Digital Treatment" is giving healthy life to many people.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="education padd-1S">
+                                    <h3 class="tittle">Diseases</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-1S">
+                                            <div class="timeline  shadow-dark">
+                                                <!--timeline items-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot">
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i>Diseases 1:
+                                                        </h3>
+                                                        <h4 class="timeline-titte">Hole in "Heart"</h4>
+                                                        <p class="timeline-text">A hole in the heart is a type of
+                                                            congenital heart defect which in medical terminology
+                                                            referred to as a vantricular Septal defect (VSD) or an
+                                                            Atrial Septal Defect (ASD). </p>
+                                                    </div>
+                                                    <!--timeline items-->
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot">
+                                                            <h3 class="timeline-date">
+                                                                <i class="fa fa-calendar"></i>Diseases 2:
+                                                            </h3>
+                                                            <h4 class="timeline-titte">"Cancer" in human</h4>
+                                                            <p class="timeline-text">Cancer is a disease in which some
+                                                                of the body's cells grow uncontrollably and spread to
+                                                                other parts of the body. Cancer can start almost
+                                                                anywhere in the human body, which is made up of
+                                                                trillions of cells. </p>
+                                                        </div>
+                                                        <!--timeline items-->
+                                                        <div class="timeline-item">
+                                                            <div class="circle-dot">
+                                                                <h3 class="timeline-date">
+                                                                    <i class="fa fa-calendar"></i>Diseases 3:
+                                                                </h3>
+                                                                <h4 class="timeline-titte">"Diadetes"</h4>
+                                                                <p class="timeline-text">Diabetes is a chronic
+                                                                    (long-lasting) health condition that affects how
+                                                                    your body turns food into eneregy. Most of the food
+                                                                    you eat is broken down into sugar and releases into
+                                                                    your bloodstream. </p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience padd-1S">
+                                    <h3 class="tittle">Treatment</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-1S">
+                                            <div class="timeline  shadow-dark">
+                                                <!--timeline items-->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot">
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i>Treatment 1:
+                                                        </h3>
+                                                        <h4 class="timeline-titte">Treatment of "Heart"</h4>
+                                                        <p class="timeline-text"> Hole in the heart causes many defect-
+                                                            related deaths. But due to advancements in health care,
+                                                            these deaths are steeply declining with the increasing
+                                                            survival declining with the increasing survival chances.
+                                                        </p>
+                                                    </div>
+                                                    <!--timeline items-->
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot">
+                                                            <h3 class="timeline-date">
+                                                                <i class="fa fa-calendar"></i>Treatment 2:
+                                                            </h3>
+                                                            <h4 class="timeline-titte"> Treatment of "Cancer" </h4>
+                                                            <p class="timeline-text">cancer treatment is the use of
+                                                                surgery, radiation, medications and other therapies to
+                                                                cure a cancer,shrinka cancer or stop the progression of
+                                                                a cancer.Many cancer treatment exist.depending on your
+                                                                situation </p>
+                                                        </div>
+                                                        <!--timeline items-->
+                                                        <div class="timeline-item">
+                                                            <div class="circle-dot">
+                                                                <h3 class="timeline-date">
+                                                                    <i class="fa fa-calendar"></i>Treatment 3:
+                                                                </h3>
+                                                                <h4 class="timeline-titte">"Diadetes"</h4>
+                                                                <p class="timeline-text">Metformin is generally the
+                                                                    preferred initial medication for trating type 2
+                                                                    diabetes unless there's a specific reason not to use
+                                                                    it.Metformin is effective, safe , and expensive.It
+                                                                    may reduce the risk of cardiovascular events</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="about section " id="covid-19">
+                <div class="container">
+                    <div class="pop">
+                        <div class="section-tittle padd-1S">
+                            <h2>COVID-19</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="about-content padd-1S">
+                            <div class="pop">
+                                <div class="about-text">
+                                    <h3>What is <span>"COVID-19"</span></h3>
+                                    <p>Coronaviruses are a group of viruses belonging to tha family of Coronaviridae,
+                                        which infect both animals and humans.Human Coronaviruses can cause mild disease
+                                        similar to a common cold, ahile others cause more severe disease (such as
+                                        MERS-Middle East Respiratory Syndrome and SARS- Severe Acute Respiratory
+                                        Syndrome).</p>
+                                    <h3>Treatment</h3>
+                                    <p>Now no any specific treatment of COVID-19 only take all three dose of vaccine and
+                                        keep a distance of 2 meter, wear mask regularly, and WHO will soon find any
+                                        specific treatment of COVId-19.</p>
+                                    <a href="#contact" class="bn">Wear Mask</a>
+                                </div>
+                                <div class="column right">
+                                    <div class="bars">
+                                        <div class="info">
+                                            <span> In year2018</span>
+                                            <span>0%</span>
+                                        </div>
+                                        <div class="In year2018"></div>
+                                    </div>
+                                    <div class="bars">
+                                        <div class="info">
+                                            <span> In year2019</span>
+                                            <span>60%</span>
+                                        </div>
+                                        <div class="In year2019"></div>
+                                    </div>
+                                    <div class="bars">
+                                        <div class="info">
+                                            <span> In year2020</span>
+                                            <span>90%</span>
+                                        </div>
+                                        <div class="In year2020"></div>
+                                    </div>
+                                    <div class="bars">
+                                        <div class="info">
+                                            <span> In year2021</span>
+                                            <span>80%</span>
+                                        </div>
+                                        <div class="In year2021"></div>
+                                    </div>
+                                    <div class="bars">
+                                        <div class="info">
+                                            <span> In year2022</span>
+                                            <span>20%</span>
+                                        </div>
+                                        <div class="In year2022"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="portfolio section " id="for good health">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-tittle padd-1S">
+                            <h2>Healthy life</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="portfolio-heading padd-1S">
+                            <h2>Some health related Images :</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="portfolio-item padd-1S">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <img src="car5.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-1S">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <img src="car4.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-1S">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <img src="car6.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-1S">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <img src="car2.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-1S">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <img src="car1.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item padd-1S">
+                            <div class="portfolio-item-inner shadow-dark">
+                                <div class="portfolio-img">
+                                    <img src="car7.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="contact section" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-tittle padd-1S">
+                            <h2>Contact Me</h2>
+                        </div>
+                    </div>
+                    <h3 class="contact-tittle  padd-1S">Have you any Question</h3>
+                    <h4 class="contact-sub-tittle padd-1S">I'M AT YOUR SERVICE</h4>
+                    <div class="row">
+                        <div class="contact-info-item">
+                            <div class="icon"><i class="fa fa-phone"></i></div>
+                            <h4>Call Us On</h4>
+                            <p>+91 XXXXXXXXXX</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon"><i class="fa fa-marker-alt"></i></div>
+                            <h4>Address</h4>
+                            <p>Bhopal (MP)</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
+                            <h4>Email</h4>
+                            <p>Email@gmail.com</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon"><i class="fa fa-globe-europe"></i></div>
+                            <h4>Website</h4>
+                            <p>www.vitbhopal.ac.in</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
